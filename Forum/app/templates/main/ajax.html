@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+
+{% block title %}AJAX请求{% endblock %}
+
+{% block page_content %}
+    <button id="get">get请求</button>
+    <button id="post">post请求</button>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript">
+        function callback(data)
+        {
+            alert(data.name)
+        }
+
+        $(function () {
+            $('#get').click(function () {
+                $.get('/check_ajax/', 'name=xiaoming', callback, 'json')
+            })
+            $('#post').click(function () {
+                $.post('/check_ajax/', 'name=dahua', callback, 'json')
+            })
+        })
+    </script>
+{% endblock %}

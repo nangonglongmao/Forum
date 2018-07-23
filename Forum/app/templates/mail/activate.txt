@@ -1,0 +1,1 @@
+Hello {{ username }}，激活请点击连接，{{ url }} 激活
